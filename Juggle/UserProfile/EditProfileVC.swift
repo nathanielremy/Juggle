@@ -116,7 +116,6 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         view.backgroundColor = .white
         
         navigationItem.title = "Edit Profile"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(handleDone))
         
         setupViews()
@@ -148,10 +147,6 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         scrollView.addSubview(activityIndicator)
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    @objc fileprivate func handleCancel() {
-        self.navigationController?.popViewController(animated: true)
     }
     
     @objc fileprivate func handleDone() {

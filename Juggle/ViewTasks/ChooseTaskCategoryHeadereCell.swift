@@ -22,6 +22,7 @@ class ChooseTaskCategoryHeaderCell: UICollectionViewCell {
         let sv = UIScrollView()
         sv.bounces = true
         sv.backgroundColor = .white
+        sv.showsHorizontalScrollIndicator = true
         
         return sv
     }()
