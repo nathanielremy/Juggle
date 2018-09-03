@@ -26,12 +26,12 @@
                   moduleName = "Juggle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nathanielremy/Desktop/Juggle-all/Juggle/Juggle/Messages/ChatLogVC.swift"
-                  timestampString = "557689870.0574141"
+                  timestampString = "557690842.884787"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "266"
                   endingLineNumber = "266"
-                  offsetFromSymbolStart = "34">
+                  offsetFromSymbolStart = "48">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "Juggle"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nathanielremy/Desktop/Juggle-all/Juggle/Juggle/Messages/ChatLogVC.swift"
-                  timestampString = "557689870.060174"
+                  timestampString = "557690842.887215"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "267"
                   endingLineNumber = "267"
-                  offsetFromSymbolStart = "14">
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
