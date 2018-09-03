@@ -138,6 +138,7 @@ class ViewTasksVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         guard let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.CollectionViewCellIds.ChooseTaskCategoryHeaderCell, for: indexPath) as? ChooseTaskCategoryHeaderCell else { fatalError("Unable to dequeue UserProfileHeaderCell")}
         
         headerCell.delegate = self
+        headerCell.scrollView.flashScrollIndicators()
         
         return headerCell
     }

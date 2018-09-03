@@ -18,7 +18,7 @@ class ChooseTaskCategoryHeaderCell: UICollectionViewCell {
     var currentCategory = Constants.TaskCategories.all
     var delegate: ChooseTaskCategoryHeaderCellDelegate?
     
-    let scrollView: UIScrollView = {
+    var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.bounces = true
         sv.backgroundColor = .white
