@@ -232,7 +232,7 @@ class MessagesVC: UITableViewController {
     }
     
     //What happens when user hits delete
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         guard let currentUserId = Auth.auth().currentUser?.uid else { print("Could not fetch current user Id"); return }
         guard let chatParterId = self.messages[indexPath.row].chatPartnerId() else { print("Could not fetch chatPartnerId"); return }

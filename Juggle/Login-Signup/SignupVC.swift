@@ -46,23 +46,23 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     // Set the selected image from image picker as profile picture
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-            
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+
             plusPhotoButton.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
-            
-        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            
+
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+
             plusPhotoButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
-        
+
         // Make button perfectly round
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
         plusPhotoButton.layer.masksToBounds = true
         plusPhotoButton.layer.borderColor = UIColor.mainBlue().cgColor
         plusPhotoButton.layer.borderWidth = 3
-        
+
         // Dismiss image picker view
         picker.dismiss(animated: true, completion: nil)
     }
@@ -212,7 +212,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 return
             }
             
-            guard let imageData = UIImageJPEGRepresentation(self.approveProfileImage(), 0.2) else {
+            guard let imageData = self.approveProfileImage().jpegData(compressionQuality: 0.2) else {
                 DispatchQueue.main.async {
                     self.disableAndActivate(false)
                 }
@@ -387,4 +387,9 @@ extension SignUpVC: UITextFieldDelegate {
         }
         return true
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

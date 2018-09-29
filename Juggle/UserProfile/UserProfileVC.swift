@@ -39,7 +39,7 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
         super.viewDidLoad()
         
         collectionView?.backgroundColor = .white
-        collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Constants.CollectionViewCellIds.userProfileHeaderCell)
+        collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.CollectionViewCellIds.userProfileHeaderCell)
         collectionView?.register(TaskCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCellIds.taskCell)
         collectionView?.register(ReviewCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCellIds.reviewCell)
         

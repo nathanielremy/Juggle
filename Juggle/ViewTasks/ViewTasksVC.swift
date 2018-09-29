@@ -31,7 +31,7 @@ class ViewTasksVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = .white
         
-        collectionView?.register(ChooseTaskCategoryHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: Constants.CollectionViewCellIds.ChooseTaskCategoryHeaderCell)
+        collectionView?.register(ChooseTaskCategoryHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.CollectionViewCellIds.ChooseTaskCategoryHeaderCell)
         collectionView?.register(TaskCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCellIds.taskCell)
         
         // Manualy refresh the collectionView

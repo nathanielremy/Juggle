@@ -253,7 +253,7 @@ class TaskLocationVC: UIViewController {
                     if (latitude > Constants.BarcalonaCoordinates.maximumLatitude) || (latitude < Constants.BarcalonaCoordinates.minimumLatitude) || (longitude > Constants.BarcalonaCoordinates.maximumLongitude) || (longitude < Constants.BarcalonaCoordinates.minimumLongitude) {
                         
                         DispatchQueue.main.async {
-                            let alert = self.okayAlert(title: "Location Unavailable", message: "This feature is not yet available in your city/area.")
+                            let alert = self.okayAlert(title: "Location Unavailable", message: "This feature is not yet available in your city/area.\n(City of Barcelona, Spain Only)")
                             self.present(alert, animated: true, completion: nil)
                             self.activityIndicator.stopAnimating()
                         }

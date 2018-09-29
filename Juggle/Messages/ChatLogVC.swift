@@ -170,8 +170,8 @@ class ChatLogVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
         
         collectionView?.alwaysBounceVertical = true
         collectionView?.keyboardDismissMode = .interactive
-        collectionView?.contentInset = UIEdgeInsetsMake(8, 0, 58, 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 58, 0)
+        collectionView?.contentInset = UIEdgeInsets.init(top: 8, left: 0, bottom: 58, right: 0)
+        collectionView?.scrollIndicatorInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 58, right: 0)
         
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCellIds.chatMessageCellId)
         
@@ -220,14 +220,14 @@ class ChatLogVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     }
     
     func setupKeyBoardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyBoardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func handleKeyBoardWillShow(notifaction: NSNotification) {
         //Get the height of the keyBoard
-        let keyBoardFrame = (notifaction.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
-        let keyBoardDuration: Double = (notifaction.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
+        let keyBoardFrame = (notifaction.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        let keyBoardDuration: Double = (notifaction.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         
         if let height = keyBoardFrame?.height {
             self.containerViewBottomAnchor?.constant = -height + view.safeAreaInsets.bottom
@@ -240,7 +240,7 @@ class ChatLogVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     
     @objc func handleKeyBoardWillHide(notifaction: NSNotification) {
         //Move the keyboard back down
-        let keyBoardDuration: Double = (notifaction.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
+        let keyBoardDuration: Double = (notifaction.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         self.containerViewBottomAnchor?.constant = 0
         //Animate the containerView going down
         UIView.animate(withDuration: keyBoardDuration) {
