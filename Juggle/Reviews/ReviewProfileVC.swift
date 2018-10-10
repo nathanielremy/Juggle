@@ -70,7 +70,7 @@ class ReviewProfileVC: UIViewController {
     lazy var star1: UIButton = {
         let button = UIButton(type: .system)
         button.tag = 1
-        button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(changeRating(_:)), for: .touchUpInside)
         
         return button
@@ -79,7 +79,7 @@ class ReviewProfileVC: UIViewController {
     lazy var star2: UIButton = {
         let button = UIButton(type: .system)
         button.tag = 2
-        button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(changeRating(_:)), for: .touchUpInside)
         
         return button
@@ -88,7 +88,7 @@ class ReviewProfileVC: UIViewController {
     lazy var star3: UIButton = {
         let button = UIButton(type: .system)
         button.tag = 3
-        button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(changeRating(_:)), for: .touchUpInside)
         
         return button
@@ -97,7 +97,7 @@ class ReviewProfileVC: UIViewController {
     lazy var star4: UIButton = {
         let button = UIButton(type: .system)
         button.tag = 4
-        button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(changeRating(_:)), for: .touchUpInside)
         
         return button
@@ -106,7 +106,7 @@ class ReviewProfileVC: UIViewController {
     lazy var star5: UIButton = {
         let button = UIButton(type: .system)
         button.tag = 5
-        button.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         button.addTarget(self, action: #selector(changeRating(_:)), for: .touchUpInside)
         
         return button
@@ -115,32 +115,32 @@ class ReviewProfileVC: UIViewController {
     @objc fileprivate func changeRating(_ button: UIButton) {
         intRating = button.tag
         
-        star1.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
-        star2.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
-        star3.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
-        star4.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        star1.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
+        star2.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
+        star3.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
+        star4.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         star5.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
         
         if button.tag == 1 {
-            star1.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
+            star1.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
         } else if button.tag == 2 {
-            star1.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star2.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
+            star1.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star2.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
         } else if button.tag == 3 {
-            star1.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star2.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star3.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
+            star1.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star2.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star3.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
         } else if button.tag == 4 {
-            star1.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star2.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star3.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star4.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
+            star1.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star2.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star3.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star4.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
         } else if button.tag == 5 {
-            star1.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star2.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star3.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star4.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
-            star5.setImage(#imageLiteral(resourceName: "fullStar"), for: .normal)
+            star1.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star2.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star3.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star4.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
+            star5.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
         }
     }
     
