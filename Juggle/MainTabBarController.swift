@@ -15,6 +15,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         let index = viewControllers?.index(of: viewController)
         
+        // PresentTaskCategoryPicker if user clicks on second tabBar item
         if index == 1 {
             let categoryPicker = TaskCategoryPickerVC(collectionViewLayout: UICollectionViewFlowLayout())
             let categoryPickerNavController = UINavigationController(rootViewController: categoryPicker)
