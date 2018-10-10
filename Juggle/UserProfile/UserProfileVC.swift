@@ -291,7 +291,7 @@ class UserProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLay
             height = self.estimatedFrameForReviewCell(fromText: review).height + 55
             
             if height < 101 {
-                return CGSize(width: view.frame.width, height: 101)
+                return CGSize(width: view.frame.width, height: 110)
             } else {
                 return CGSize(width: view.frame.width, height: height)
             }
