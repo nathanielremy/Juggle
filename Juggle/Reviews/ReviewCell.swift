@@ -88,7 +88,7 @@ class ReviewCell: UICollectionViewCell {
         profileImageView.layer.cornerRadius = 60 / 2
         
         addSubview(starView)
-        starView.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 135, height: 25)
+        starView.anchor(top: topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 135, height: 30)
         
         addSubview(timeAgoLabel)
         timeAgoLabel.anchor(top: nil, left: starView.leftAnchor, bottom: self.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: -8, paddingRight: 8, width: nil, height: nil)

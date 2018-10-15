@@ -154,7 +154,7 @@ class UserProfileHeader: UICollectionViewCell {
     
     fileprivate func setupStarStack() {
         addSubview(starView)
-        starView.anchor(top: safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 160, height: 30)
+        starView.anchor(top: safeAreaLayoutGuide.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 160, height: 45)
         starView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         setupViews()

@@ -30,7 +30,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "plus_photo").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "plus_photo"), for: .normal)
         button.tintColor = UIColor.mainBlue()
         button.addTarget(self, action: #selector(handlePlusPhoto), for: .touchUpInside)
         

@@ -119,7 +119,7 @@ class ReviewProfileVC: UIViewController {
         star2.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         star3.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         star4.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
-        star5.setImage(#imageLiteral(resourceName: "emptyStar"), for: .normal)
+        star5.setImage(#imageLiteral(resourceName: "emptyStar").withRenderingMode(.alwaysOriginal), for: .normal)
         
         if button.tag == 1 {
             star1.setImage(#imageLiteral(resourceName: "fullStar").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -250,7 +250,7 @@ class ReviewProfileVC: UIViewController {
     fileprivate func setupViews() {
         view.addSubview(scrollView)
         scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: nil)
-        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 100)
+        scrollView.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 110)
         
         
         scrollView.addSubview(profileImageView)
@@ -269,7 +269,7 @@ class ReviewProfileVC: UIViewController {
         stackView.distribution = .fillEqually
         
         scrollView.addSubview(stackView)
-        stackView.anchor(top: ratingLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 50, paddingBottom: 0, paddingRight: -50, width: nil, height: 50)
+        stackView.anchor(top: ratingLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 50, paddingBottom: 0, paddingRight: -50, width: nil, height: 60)
         
         let topSeperatorView = UIView()
         topSeperatorView.backgroundColor = UIColor.lightGray
