@@ -124,10 +124,10 @@ class ViewTasksVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
     }
     
     fileprivate func removeNoResultsView() {
-        self.collectionView?.reloadData()
         self.collectionView?.refreshControl?.endRefreshing()
         DispatchQueue.main.async {
             self.noResultsView.removeFromSuperview()
+            self.collectionView?.reloadData()
         }
     }
     
@@ -155,9 +155,13 @@ class ViewTasksVC: UICollectionViewController, UICollectionViewDelegateFlowLayou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCellIds.taskCell, for: indexPath) as! TaskCell
         
         if self.currentCategory == Constants.TaskCategories.all {
-            cell.task = self.allTasks[indexPath.item]
+            if self.allTasks.count >= indexPath.item {
+                cell.task = self.allTasks[indexPath.item]
+            }
         } else {
-            cell.task = self.filteredTasks[indexPath.item]
+            if self.filteredTasks.count >= indexPath.item {
+                cell.task = self.filteredTasks[indexPath.item]
+            }
         }
         
         return cell
