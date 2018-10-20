@@ -30,15 +30,21 @@ class LogInVC: UIViewController {
     
     let logoContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.mainBlue().withAlphaComponent(0.45)
         
         let logoImage = UIImageView(image: #imageLiteral(resourceName: "logo1").withRenderingMode(.alwaysOriginal))
-        logoImage.clipsToBounds = true
-        logoImage.contentMode = .scaleAspectFit
+//        logoImage.clipsToBounds = true
+//        logoImage.contentMode = .scaleAspectFit
         
         view.addSubview(logoImage)
+        logoImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: -20, paddingRight: 0, width: nil, height: nil)
+//        logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        logoImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        logoImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: nil)
+        let seperatorView = UIView()
+        seperatorView.backgroundColor = .gray
+        
+        view.addSubview(seperatorView)
+        seperatorView.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: 0.75)
         
         return view
     }()
@@ -189,7 +195,7 @@ class LogInVC: UIViewController {
         stackView.spacing = 10
         
         scrollView.addSubview(stackView)
-        stackView.anchor(top: scrollView.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 70, paddingLeft: 40, paddingBottom: 0, paddingRight: -40, width: nil, height: 150)
+        stackView.anchor(top: scrollView.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 30, paddingLeft: 40, paddingBottom: 0, paddingRight: -40, width: nil, height: 150)
         
         scrollView.addSubview(switchToSignupButton)
         switchToSignupButton.anchor(top: nil, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: 50)

@@ -11,6 +11,7 @@ import Firebase
 
 protocol MessageTableViewCellDelegate {
     func handleViewTaskButton(forTask task: Task?)
+    func handleProfileImageView(forUser user: User?)
 }
 
 class MessageTableViewCell: UITableViewCell {
@@ -66,9 +67,15 @@ class MessageTableViewCell: UITableViewCell {
         iv.backgroundColor = .lightGray
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
+        iv.isUserInteractionEnabled = true
         
         return iv
     }()
+    
+    @objc func handleProfileImageView() {
+        guard let user = message.1 else { return }
+        delegate?.handleProfileImageView(forUser: user)
+    }
     
     lazy var viewTaskButton: UIButton = {
         let button = UIButton(type: .system)
@@ -127,6 +134,14 @@ class MessageTableViewCell: UITableViewCell {
         profileImageView.anchor(top: nil, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 50, height: 50)
         profileImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         profileImageView.layer.cornerRadius = 50/2
+        
+        //Add button over profileImageView to view user's profile
+        let button = UIButton()
+        button.backgroundColor = nil
+        addSubview(button)
+        button.anchor(top: profileImageView.topAnchor, left: profileImageView.leftAnchor, bottom: profileImageView.bottomAnchor, right: profileImageView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 50, height: 50)
+        button.layer.cornerRadius = 50/2
+        button.addTarget(self, action: #selector(handleProfileImageView), for: .touchUpInside)
         
         addSubview(viewTaskButton)
         viewTaskButton.anchor(top: nil, left: nil, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: -4, paddingRight: -4, width: 70, height: 25)

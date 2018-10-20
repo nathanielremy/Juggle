@@ -370,6 +370,8 @@ class ChatLogVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
         let text = self.messages[indexPath.item].text
         cell.chatBubbleWidth?.constant = estimatedFrameForChatBubble(fromText: text).width + 32
         
+        cell.delegate = self
+        
         return cell
     }
     
@@ -422,5 +424,15 @@ extension ChatLogVC: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension ChatLogVC: ChatMessageCellDelegate {
+    func handleProfileImageView() {
+        if let uId = self.data.0?.uid {
+            let userProfileVC = UserProfileVC(collectionViewLayout: UICollectionViewFlowLayout())
+            userProfileVC.userId = uId
+            navigationController?.pushViewController(userProfileVC, animated: true)
+        }
     }
 }

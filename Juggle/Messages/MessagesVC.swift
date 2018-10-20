@@ -282,4 +282,15 @@ extension MessagesVC: MessageTableViewCellDelegate {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func handleProfileImageView(forUser user: User?) {
+        if let user = user {
+            let userProfileVC = UserProfileVC(collectionViewLayout: UICollectionViewFlowLayout())
+            userProfileVC.userId = user.uid
+            navigationController?.pushViewController(userProfileVC, animated: true)
+        } else {
+            let alert = self.okayAlert(title: "Unable to View User", message: "This profile is unable to load right now.")
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }

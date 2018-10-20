@@ -8,12 +8,17 @@
 
 import UIKit
 
+protocol ChatMessageCellDelegate {
+    func handleProfileImageView()
+}
+
 class ChatMessageCell: UICollectionViewCell {
     
     //MARK: Stored properties
     var chatBubbleWidth: NSLayoutConstraint?
     var chatBubbleRightAnchor: NSLayoutConstraint?
     var chatBubbleLeftAnchor: NSLayoutConstraint?
+    var delegate: ChatMessageCellDelegate?
     
     let chatBubble: UIView = {
         let view = UIView()
@@ -41,6 +46,10 @@ class ChatMessageCell: UICollectionViewCell {
         
         return iv
     }()
+    
+    @objc func handleProfileImageView() {
+        delegate?.handleProfileImageView()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,5 +80,13 @@ class ChatMessageCell: UICollectionViewCell {
         
         profileImageView.anchor(top: nil, left: self.leftAnchor, bottom: self.bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 32, height: 32)
         profileImageView.layer.cornerRadius = 32/2
+        
+        //Add button over profileImageView to view user's profile
+        let button = UIButton()
+        button.backgroundColor = nil
+        addSubview(button)
+        button.anchor(top: profileImageView.topAnchor, left: profileImageView.leftAnchor, bottom: profileImageView.bottomAnchor, right: profileImageView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 50, height: 50)
+        button.layer.cornerRadius = 50/2
+        button.addTarget(self, action: #selector(handleProfileImageView), for: .touchUpInside)
     }
 }
