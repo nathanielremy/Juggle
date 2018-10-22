@@ -32,19 +32,17 @@ class LogInVC: UIViewController {
         let view = UIView()
         
         let logoImage = UIImageView(image: #imageLiteral(resourceName: "logo1").withRenderingMode(.alwaysOriginal))
-//        logoImage.clipsToBounds = true
-//        logoImage.contentMode = .scaleAspectFit
+        logoImage.clipsToBounds = true
+        logoImage.contentMode = .scaleToFill
         
         view.addSubview(logoImage)
-        logoImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: -20, paddingRight: 0, width: nil, height: nil)
-//        logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        logoImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        logoImage.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 50, paddingBottom: -30, paddingRight: -50, width: nil, height: nil)
         
         let seperatorView = UIView()
-        seperatorView.backgroundColor = .gray
+        seperatorView.backgroundColor = .lightGray
         
         view.addSubview(seperatorView)
-        seperatorView.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: 0.75)
+        seperatorView.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 15, paddingBottom: 0, paddingRight: -15, width: nil, height: 0.5)
         
         return view
     }()
