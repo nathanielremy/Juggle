@@ -5,6 +5,54 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
+//Listen for new reviews
+exports.reviewAdded = functions.database.ref('/reviews/{reviedUserId}/{reviewId}')
+  .onCreate((snapshot, context) => {
+
+    var reviewedUserId = context.params.reviedUserId;
+    var reviewId = context.params.reviewId;
+
+    return admin.database().ref('/reviews/' + reviewedUserId + '/' + reviewId).once('value', (snapshot) => {
+
+      var review = snapshot.val();
+      var reviewedBy = review.userId;
+
+      return admin.database().ref('/users/' + reviewedBy + '/').once('value', (snapshot) => {
+
+        var reviewer = snapshot.val();
+        var reviewerFullName = reviewer.fullName;
+
+        return admin.database().ref('/users/' + reviewedUserId + '/').once('value', (snapshot) => {
+
+          var reviewedUser = snapshot.val();
+          var reviewedUserFcmToken = reviewedUser.fcmToken;
+
+          var message = {
+            notification: {
+              title: 'New Review',
+              body: reviewerFullName + ' has left a review on your profile.'
+            },
+            data: {
+              type: 'review'
+            },
+            token: reviewedUserFcmToken
+          };
+
+          admin.messaging().send(message)
+            .then((response) => {
+              // Response is a message ID string.
+              console.log('Successfully sent message:', response);
+              return
+            })
+            .catch((error) => {
+              console.log('Error sending message:', error);
+              return
+          });
+        })
+      })
+    })
+  });
+
 //Listen for new messages
 exports.messageAdded = functions.database.ref('/messages/{messageId}')
   .onCreate((snapshot, context) => {
@@ -50,7 +98,7 @@ exports.messageAdded = functions.database.ref('/messages/{messageId}')
             .catch((error) => {
               console.log('Error sending message:', error);
               return
-            });
+          });
         })
       })
     })
