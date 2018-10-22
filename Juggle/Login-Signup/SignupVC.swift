@@ -240,10 +240,19 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                     return
                 }
                 
+                guard let fcmToken = Messaging.messaging().fcmToken else {
+                    print("Could not generate fcmToken for user")
+                    DispatchQueue.main.async {
+                        self.disableAndActivate(false)
+                    }
+                    return
+                }
+                
                 let userValues = [
                     Constants.FirebaseDatabase.emailAddress : textFields.email,
                     Constants.FirebaseDatabase.fullName : textFields.fullName,
-                    Constants.FirebaseDatabase.profileImageURLString : profileImageURLString
+                    Constants.FirebaseDatabase.profileImageURLString : profileImageURLString,
+                    Constants.APNS.fcmToken : fcmToken
                 ]
                 let values = [user.uid : userValues]
                 

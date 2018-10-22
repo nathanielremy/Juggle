@@ -81,6 +81,7 @@
 		44AAAC302104AA270010D2DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44AAAC332104AA270010D2DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44AAAC352104AA270010D2DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44E01F50217BBD5E0064D95C /* Juggle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Juggle.entitlements; sourceTree = "<group>"; };
 		44F606FC2104AB06005977CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C244CA9E3954A75D42ECB397 /* Pods-Juggle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Juggle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Juggle/Pods-Juggle.release.xcconfig"; sourceTree = "<group>"; };
 		ED98EB452045381A8E04697C /* Pods-Juggle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Juggle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Juggle/Pods-Juggle.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +247,7 @@
 		44AAAC282104AA260010D2DA /* Juggle */ = {
 			isa = PBXGroup;
 			children = (
+				44E01F50217BBD5E0064D95C /* Juggle.entitlements */,
 				44AAAC292104AA260010D2DA /* AppDelegate.swift */,
 				440487B32104AD220008EDD5 /* MainTabBarController.swift */,
 				440487B52104AD3F0008EDD5 /* Utilities */,
@@ -314,6 +316,11 @@
 					44AAAC252104AA260010D2DA = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -359,6 +366,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Juggle/Pods-Juggle-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -366,6 +374,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -573,6 +582,7 @@
 			baseConfigurationReference = ED98EB452045381A8E04697C /* Pods-Juggle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Juggle/Juggle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZT386G464;
 				INFOPLIST_FILE = Juggle/Info.plist;
@@ -593,6 +603,7 @@
 			baseConfigurationReference = C244CA9E3954A75D42ECB397 /* Pods-Juggle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Juggle/Juggle.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6ZT386G464;
 				INFOPLIST_FILE = Juggle/Info.plist;

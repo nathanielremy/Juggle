@@ -17,6 +17,12 @@ class Constants {
         static let minimumLongitude: Double = 2.069
     }
     
+    struct APNS {
+        static let fcmToken = "fcmToken"
+        static let type = "type"
+        static let message = "message"
+    }
+    
     struct FirebaseStorage {
         static let profileImages = "profile_images"
     }

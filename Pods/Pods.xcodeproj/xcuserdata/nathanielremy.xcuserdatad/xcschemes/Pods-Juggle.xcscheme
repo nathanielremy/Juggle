@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE28DD3AA0494F688346C580DA70D64E"
+               BlueprintIdentifier = "4A16B5B0BF2784D58921CB34A76AA4EF"
                BuildableName = "Pods_Juggle.framework"
                BlueprintName = "Pods-Juggle"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AE28DD3AA0494F688346C580DA70D64E"
+            BlueprintIdentifier = "4A16B5B0BF2784D58921CB34A76AA4EF"
             BuildableName = "Pods_Juggle.framework"
             BlueprintName = "Pods-Juggle"
             ReferencedContainer = "container:Pods.xcodeproj">

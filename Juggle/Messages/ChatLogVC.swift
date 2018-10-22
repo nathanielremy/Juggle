@@ -251,9 +251,8 @@ class ChatLogVC: UICollectionViewController, UICollectionViewDelegateFlowLayout 
     func observeMessages(forUser user: User) {
         self.disableAndActivate(true)
         guard let userId = Auth.auth().currentUser?.uid else { print("No current user id"); self.disableAndActivate(false); return }
-        guard let chatPartnerId = self.data.0?.uid else { print("No user in stored property")
-            self.disableAndActivate(false); return
-        }
+        let chatPartnerId = user.uid
+        
         let userMessagesRef = Database.database().reference().child(Constants.FirebaseDatabase.userMessagesRef).child(userId).child(chatPartnerId)
         DispatchQueue.main.async {
             self.disableAndActivate(false)
