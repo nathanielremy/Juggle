@@ -78,7 +78,7 @@ class Constants {
         static let delivery = "Delivery"
         static let moving = "Moving"
         static let computerIT = "Computer/IT"
-        static let handyMan = "Handy Man"
+        static let handyMan = "Handyman"
         static let gardening = "Gardening"
         static let assembly = "Assembly"
         static let other = "Other"
